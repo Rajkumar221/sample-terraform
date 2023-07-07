@@ -26,11 +26,11 @@ output "sample" {
 
 #list
 variable "courses" {
-  default = {
+  default = [
     "devops",
     "aws",
     "python"
-  }
+  ]
 }
 
 output "courses" {
