@@ -25,24 +25,6 @@ output "sample" {
 #bool
 
 #list
-# variable "courses" {
-#   default = [
-#     "devops",
-#     "aws",
-#     "python"
-#   ]
-# }
-
-# we can write the above code like below also
-# variable "courses" {
-#     default = ["devops", "aws", "python"]
-# }
-
-# output "courses" {
-#   value = var.courses
-# }
-
-
 variable "courses" {
   default = [
     "devops",
@@ -51,6 +33,27 @@ variable "courses" {
   ]
 }
 
+# we can write the above code like below also
+# variable "courses" {
+#     default = ["devops", "aws", "python"]
+# }
+
 output "courses" {
-   value = var.courses
+  value = var.courses
+}
+
+# map
+variable "course_details" {
+    default = {
+        devops = {
+            name = "devops"
+            time = "6AM"
+            duration = "60min"
+        }
+        aws = {
+            name = "aws"
+            time = "7am"
+            duration = "60min"
+        }
+    }
 }
