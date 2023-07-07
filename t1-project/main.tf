@@ -4,7 +4,7 @@ resource "aws_instance" "test" {
  instance_type = var.instance_type
 
   tags = {
-    Name = "var.tags(count.index)"
+    Name = var.tags[count.index]
   }
 }
 
