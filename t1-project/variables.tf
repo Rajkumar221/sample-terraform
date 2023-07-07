@@ -5,7 +5,7 @@ variable "instance_type" {
 }
 
 variable "tags" {
-  default = "HellowWorld"
+  default = ["user1", "user2"]
 }
 
 variable "instance_count" {
