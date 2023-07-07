@@ -24,3 +24,15 @@ output "sample" {
 
 #bool
 
+#list
+variable "courses" {
+  default = {
+    "devops",
+    "aws",
+    "python"
+  }
+}
+
+output "courses" {
+  value = var.courses
+}
