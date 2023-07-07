@@ -3,12 +3,12 @@ variable "course" {
     default = "devops"
 }
 
-output "batch" {
+output "course" {
     value = var.course
 }
 
 #number
-variable "course" {
+variable "batch" {
     default = 100
 }
 
