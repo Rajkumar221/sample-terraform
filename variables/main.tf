@@ -18,7 +18,9 @@ output "batch" {
 
 #if we want to print two variables together 
 output "sample" {
-  value = "${var.course}-${var.count}"
+  value = "${var.course}-${var.batch}"
 }
+
+
 #bool
 
