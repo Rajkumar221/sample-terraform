@@ -3,17 +3,17 @@ variable "course" {
     default = "devops"
 }
 
-output "course" {
+output "batch" {
     value = var.course
 }
 
 #number
-variable "count" {
+variable "course" {
     default = 100
 }
 
-output "count" {
-  value = var.count
+output "batch" {
+  value = var.batch
 }
 
 #if we want to print two variables together 
