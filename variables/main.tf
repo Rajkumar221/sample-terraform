@@ -25,6 +25,24 @@ output "sample" {
 #bool
 
 #list
+# variable "courses" {
+#   default = [
+#     "devops",
+#     "aws",
+#     "python"
+#   ]
+# }
+
+# we can write the above code like below also
+# variable "courses" {
+#     default = ["devops", "aws", "python"]
+# }
+
+# output "courses" {
+#   value = var.courses
+# }
+
+
 variable "courses" {
   default = [
     "devops",
@@ -34,5 +52,5 @@ variable "courses" {
 }
 
 output "courses" {
-  value = var.courses
+   value = var.courses
 }
