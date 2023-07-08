@@ -2,9 +2,9 @@ variable "component" {
     default = "appache"
 }
 
-default "ami" { }
+variable "ami" { }
 
-default "instance_type" {
+variable "instance_type" {
     default = "t2.micro"
 }
 
