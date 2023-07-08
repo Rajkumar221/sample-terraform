@@ -26,7 +26,7 @@ resource "aws_instance" "nginx" {
     instance_type = var.instance_type
     vpc_security_group_ids = [aws_security_group.sg.id]
 
-    user_data = templatefile("${path.module}/userdata.sh")
+    user_data = templatefile("module1/userdata.sh")
 
     tags = {
         Name = "${var.component}-${var.env}" 
