@@ -1,3 +1,3 @@
 output "public_ip_test" {
-    value = aws_instance_test.ip
+    value = aws_instance.test.public_ip
 }
