@@ -1,5 +1,5 @@
-resource "aws_security_group" "allow_all" {
-  name        = "allow_all"
+resource "aws_security_group" "sg" {
+  name        = "allow_all_sg"
   description = "Allow TLS inbound traffic"
 
   dynamic "ingress" {
@@ -22,6 +22,6 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = {
-    Name = "allow_all"
+    Name = "allow_all_sg"
   }
 }
