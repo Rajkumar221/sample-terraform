@@ -1,4 +1,3 @@
 output "public_ip_test" {
-    count = var.instance_count
-    value = aws_instance.test[count.index].public_ip
+    value = aws_instance.user1.public_ip
 }
