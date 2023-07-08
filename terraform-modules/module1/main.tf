@@ -26,12 +26,7 @@ resource "aws_instance" "nginx" {
     instance_type = var.instance_type
     vpc_security_group_ids = [aws_security_group.sg.id]
 
-    user_data = <<-EOF
-      #!/bin/sh
-      sudo yum install nginx
-      sudo systemctl enable nginx
-      sudo systemctl start nginx
-      EOF
+    user_data = templatefile("${path.module}/userdata.sh")
 
     tags = {
         Name = "${var.component}-${var.env}" 
