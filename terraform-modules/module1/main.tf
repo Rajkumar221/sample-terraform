@@ -28,17 +28,12 @@ resource "aws_instance" "nginx" {
 
     user_data = <<-EOF
       #!/bin/sh
-      sudo apt-get update
-      sudo dnf install httpd
-      sudo firewall-cmd --permanent --add-service=https
-      sudo firewall-cmd --reload
-      sudo systemctl start httpd
-      sudo systemctl status httpd
+      sudo yum install nginx
+      sudo systemctl enable nginx
+      sudo systemctl start nginx
       EOF
-
 
     tags = {
         Name = "${var.component}-${var.env}" 
     }
-
 }
