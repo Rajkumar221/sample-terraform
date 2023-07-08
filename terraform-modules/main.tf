@@ -6,4 +6,6 @@ module "module1" {
 
 module "module2" {
   source = "./module2"
+  for_each = var.module2
+  ami = each.value["ami"]
 }
