@@ -1,2 +1,2 @@
-variable "module1" { }
-variable "module2" { }
+variable "nginx" { }
+variable "appache" { }
