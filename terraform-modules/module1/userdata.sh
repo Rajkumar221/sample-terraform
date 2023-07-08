@@ -1,4 +1,13 @@
-#!/bin/sh
-sudo yum install nginx
-sudo systemctl enable nginx 
-sudo systemctl start nginx
+#!/bin/bash
+
+# Update the system
+yum update -y
+
+# Install Nginx
+yum install -y nginx
+
+# Start Nginx service
+systemctl start nginx
+
+# Enable Nginx to start on system boot
+systemctl enable nginx
