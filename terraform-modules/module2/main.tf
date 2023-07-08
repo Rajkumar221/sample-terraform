@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">=0.12"
+}
+
 resource "aws_security_group" "sg" {
   name        = "${var.component}-sg"
   description = "Allow TLS inbound traffic"
