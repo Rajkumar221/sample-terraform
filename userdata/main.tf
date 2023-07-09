@@ -50,8 +50,10 @@ resource "aws_instance" "example" {
     }
 
     inline = [
-      "sudo labauto ansible",
-      "ansible-pull -i localhost, -U https://github.com/Rajkumar221/roboshop-ansible.git main.yml -e role_name=frontend"
+      "yum update -y",
+      "yum install -y httpd",
+      "systemctl start httpd",
+      "systemctl enable httpd"
     ]
   }
 
