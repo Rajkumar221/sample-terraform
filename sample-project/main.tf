@@ -91,10 +91,9 @@ resource "aws_eip" "one" {
   associate_with_private_ip = "10.0.1.50"
 }
 
-resource "aws_instance" "foo" {
+resource "aws_instance" "main" {
   ami           = "ami-03265a0778a880afb"
   instance_type = var.instance_type
-  availability_zone = var.availability_zone
 
   network_interface {
     network_interface_id = aws_network_interface.test.id
