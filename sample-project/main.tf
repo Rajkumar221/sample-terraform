@@ -82,7 +82,7 @@ ingress {
 resource "aws_network_interface" "test" {
   subnet_id       = aws_subnet.main.id
   private_ips     = ["10.0.1.50"]
-  security_groups = [aws_security_group.main.id]
+  security_groups = [aws_security_group.allow_tls.id]
 }
 
 resource "aws_eip" "one" {
