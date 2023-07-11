@@ -102,10 +102,12 @@ resource "aws_instance" "main" {
 
   user_data = file("${path.module}/userdata.sh")
 
-    tags = {
-      Name = "web-server"
-    }
+  tags = {
+    Name = "web-server"
+  }
 }
+
+
 
 
 #   user_data = <<-EOF
