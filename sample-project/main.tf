@@ -107,8 +107,8 @@ resource "aws_instance" "main" {
 #       "sudo systemctl start httpd",
 #       "sudo systemctl enable httpd"
 #       EOF
-    user_data = file(userdata.sh)
-    
+    user_data = file("userdata.sh")
+
     tags = {
       Name = "web-server"
     }
