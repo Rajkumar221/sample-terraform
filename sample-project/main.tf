@@ -94,13 +94,13 @@ resource "aws_eip" "one" {
 resource "aws_instance" "main" {
   ami           = "ami-03265a0778a880afb"
   instance_type = var.instance_type
+  user_data = "${"file(userdata.sh)"}"
 
   network_interface {
     network_interface_id = aws_network_interface.test.id
     device_index         = 0
   }
 
-  user_data = "${"file(userdata.sh)"}"
   tags = {
     Name = "web-server"
   }
