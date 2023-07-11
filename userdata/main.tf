@@ -26,35 +26,35 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.allow_all.id]
 
-#   user_data = <<-EOF
-#     #!/bin/bash
-#     echo "Hello, World!" > /tmp/greeting.txt
-#     yum update -y
-#     yum install -y httpd
-#     systemctl start httpd
-#     systemctl enable httpd
-#   EOF
+  user_data = <<-EOF
+    #!/bin/bash
+    echo "Hello, World!" > /tmp/greeting.txt
+    yum update -y
+    yum install -y httpd
+    systemctl start httpd
+    systemctl enable httpd
+  EOF
 
 
   tags = {
     Name = "example"
   }
 
-  provisioner "remote-exec" {
+  # provisioner "remote-exec" {
 
-    connection {
-      type     = "ssh"
-      user     = "centos"
-      password = "DevOps321"
-      host     = self.public_ip
-    }
+  #   connection {
+  #     type     = "ssh"
+  #     user     = "centos"
+  #     password = "DevOps321"
+  #     host     = self.public_ip
+  #   }
 
-    inline = [
-      "sudo yum update -y",
-      "sudo yum install -y httpd",
-      "sudo systemctl start httpd",
-      "sudo systemctl enable httpd"
-    ]
-  }
+  #   inline = [
+  #     "sudo yum update -y",
+  #     "sudo yum install -y httpd",
+  #     "sudo systemctl start httpd",
+  #     "sudo systemctl enable httpd"
+  #   ]
+  # }
 
 }
