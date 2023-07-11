@@ -100,8 +100,7 @@ resource "aws_instance" "main" {
     device_index         = 0
   }
 
-  user_data = file("${path.module}/userdata.sh")
-
+  user_data = "${"file(userdata.sh)"}"
   tags = {
     Name = "web-server"
   }
