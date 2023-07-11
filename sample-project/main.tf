@@ -100,6 +100,14 @@ resource "aws_instance" "main" {
     device_index         = 0
   }
 
+  user_data = file("userdata.sh")
+
+    tags = {
+      Name = "web-server"
+    }
+}
+
+
 #   user_data = <<-EOF
 #       #!/bin/bash
 #       "sudo yum update -y",
@@ -107,10 +115,4 @@ resource "aws_instance" "main" {
 #       "sudo systemctl start httpd",
 #       "sudo systemctl enable httpd"
 #       EOF
-    user_data = file("userdata.sh")
-
-    tags = {
-      Name = "web-server"
-    }
-}
-
+  
