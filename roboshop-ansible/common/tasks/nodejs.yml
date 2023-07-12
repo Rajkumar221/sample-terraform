@@ -1,0 +1,43 @@
+- name:  Setup NodeJS repos
+  ansible.builtin.shell: https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Install NodeJS
+  ansible.builtin.yum:
+    name: nodejs
+    state: installed
+
+
+- name: app pre-requisites
+  ansible.builtin.import_tasks:
+    file: app_presetup.yml
+
+
+- name: Load nodejs dependencies
+  ansible.builtin.shell: npm install
+  args: 
+      chdir: /app
+
+- name: setup systemd service
+  ansible.builtin.import_tasks:
+    file: systemd.setup.yml
+
+
+
+
+
+
+
+
+
+
+
+
+# echo -e "${color} Setup SystemD $component Service ${nocolor}"
+# cp /home/centos/Roboshop-Project/$component.service /etc/systemd/system/$component.service &>>$log_file
+# stat_check $?
+
+# echo -e "${color} start $component service ${nocolor}"
+# systemctl daemon-reload &>>$log_file
+# systemctl enable $component  &>>$log_file
+# systemctl restart $component &>>$log_file
+# stat_check $?
