@@ -1,0 +1,35 @@
+- name: install maven
+  ansible.builtin.yum:
+    name: maven
+    state: latest
+
+- name: Add application user
+  ansible.builtin.user:
+    name: roboshop
+
+- name: remove app directory
+  ansible.builtin.file:
+    path: /app
+    state: absent
+
+- name: create  app directory
+  ansible.builtin.file:
+    path: /app
+    state: directory
+
+- name: download and extract the app content
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/shipping.zip
+    dest: /app
+    remote_src: yes
+
+- name: mysql schema setup
+  ansible.builtin.import_task:
+    file: mysql_schema_setup.yml
+
+- name: systemd setup
+  ansible.builtin.import_task:
+    file: systemd_setup.yml
+
+
+
