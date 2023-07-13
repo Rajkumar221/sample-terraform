@@ -13,7 +13,7 @@
 - name: install python dependencies
   ansible.builtin.shell: pip3.6 install -r requirements.txt
   args:
-    chdir: /app
+     chdir: /app
 
 - name: systemd setup
   ansible.builtin.import_task: 
