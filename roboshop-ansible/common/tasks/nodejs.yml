@@ -19,7 +19,7 @@
 
 - name: setup systemd service
   ansible.builtin.import_tasks:
-    file: systemd.setup.yml
+     file: systemd.setup.yml
 
 
 
@@ -30,14 +30,3 @@
 
 
 
-
-
-# echo -e "${color} Setup SystemD $component Service ${nocolor}"
-# cp /home/centos/Roboshop-Project/$component.service /etc/systemd/system/$component.service &>>$log_file
-# stat_check $?
-
-# echo -e "${color} start $component service ${nocolor}"
-# systemctl daemon-reload &>>$log_file
-# systemctl enable $component  &>>$log_file
-# systemctl restart $component &>>$log_file
-# stat_check $?
