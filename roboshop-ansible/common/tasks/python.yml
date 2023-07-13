@@ -8,7 +8,7 @@
 
 - name: app pre-requisites
   ansible.builtin.import_task:
-    file: app_presetup
+    file: app_presetup.yml
 
 - name: install python dependencies
   ansible.builtin.shell: pip3.6 install -r requirements.txt
