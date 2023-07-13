@@ -1,5 +1,5 @@
 - name: Configure YUM Repos
-  ansible.builtin.shell: https://packagecloud.io/install/repositories/rabbitmq/{{ item }} | bash
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/{{ item }} | bash
   loop: 
     - erlang/script.rpm.sh
     - rabbitmq-server/script.rpm.sh
