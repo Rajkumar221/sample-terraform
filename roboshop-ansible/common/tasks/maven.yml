@@ -3,25 +3,15 @@
     name: maven
     state: latest
 
-- name: Add application user
-  ansible.builtin.user:
-    name: roboshop
+- name: Add application User and app directory
+  ansible.builtin.import_tasks:
+    file: app_presetup.yml
 
-- name: remove app directory
-  ansible.builtin.file:
-    path: /app
-    state: absent
+- name: download the dependencies
+  ansible.builtin.shell: mvn clean package ; mv target/{{ component }}-1.0.jar {{ component }}.jar
+  args: 
+    chdir: /app
 
-- name: create  app directory
-  ansible.builtin.file:
-    path: /app
-    state: directory
-
-- name: download and extract the app content
-  ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com/shipping.zip
-    dest: /app
-    remote_src: yes
 
 - name: mysql schema setup
   ansible.builtin.import_task:
