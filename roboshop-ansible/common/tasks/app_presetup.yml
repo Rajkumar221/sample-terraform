@@ -12,7 +12,7 @@
     path: /app
     state: directory
 
-- name: Unarchive a file that needs to be downloaded (added in 2.0)  
+- name: download and extract the app content
   ansible.builtin.unarchive:
      src: https://roboshop-artifacts.s3.amazonaws.com/{{ component }}.zip
      dest: /app
