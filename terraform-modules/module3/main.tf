@@ -33,8 +33,8 @@ resource "aws_instance" "web" {
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.sg.id]
 
-  user_data = templatefile("module3/userdata.sh", {
-    env = var.env
+  user_data = templatefile("${path.module}/module3/userdata.sh", {
+    env       = var.env
     component = var.component
   })
 
