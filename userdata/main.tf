@@ -1,19 +1,19 @@
 resource "aws_security_group" "allow_all" {
   name        = "allow_all"
-  description = "Allow TLS inbound traffic"
+  description = "Allow all inbound and outbound traffic"
 
   ingress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
@@ -35,10 +35,11 @@ resource "aws_instance" "example" {
     systemctl enable httpd
   EOF
 
-
   tags = {
     Name = "example"
   }
+}
+
 
   # provisioner "remote-exec" {
 
@@ -57,4 +58,4 @@ resource "aws_instance" "example" {
   #   ]
   # }
 
-}
+
