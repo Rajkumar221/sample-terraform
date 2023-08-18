@@ -4,3 +4,9 @@ variable "component" {
 variable "env" {
     default = "dev"
 }
+
+variable "ami" {}
+
+variable "instance_type" {
+    
+}
