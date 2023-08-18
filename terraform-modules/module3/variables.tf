@@ -1,1 +1,6 @@
-variable "component" {}
+variable "component" {
+    default = "nginx"
+}
+variable "env" {
+    default = "dev"
+}
