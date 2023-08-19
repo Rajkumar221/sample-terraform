@@ -1,8 +1,8 @@
 locals {
   all_route_table_ids = [
-    module.subnets.route_table_ids["app"],
-    module.subnets.route_table_ids["web"],
-    module.subnets.route_table_ids["db"],
-    module.subnets.route_table_ids["public"]
+    module.subnets.app_route_table_ids,
+    module.subnets.web_route_table_ids,
+    module.subnets.db_route_table_ids,
+    module.subnets.public_route_table_ids,
   ]
 }
